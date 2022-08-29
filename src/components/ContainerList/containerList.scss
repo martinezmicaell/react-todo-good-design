@@ -1,0 +1,78 @@
+.containerList {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    align-items: center;
+    /* From https://css.glass */
+    background: rgba(33, 29, 29, 0.21);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(33, 29, 29, 0.3);
+    overflow-y: scroll;
+
+    &__title {
+        font-size: 36px;
+        background: -webkit-linear-gradient(60deg,#427da5, #B45C4B);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 3px rgba(255,255,255, .3);
+    }
+
+    &__progress {
+        margin-top: -20px;
+        color: rgba(94,123,154, .7);
+        text-shadow: 0px 0px 1px rgba(255, 255, 215, 0.4);
+    }
+
+}
+
+.containerSearch {
+    position: relative;
+    margin-bottom: 10px;
+
+
+
+    &__search {
+        padding: .7rem;
+        border-radius: .3rem;
+        outline: none;
+        background-color: rgba(0, 0, 0, .2);
+        width: 300px;
+        font-weight: bold;
+        font-style: italic;
+        border: none;
+        box-shadow: 0px 0px 8px gray;
+        caret-color: gray;
+        font-size: 17px;
+
+    }
+}
+
+
+.containerIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+
+
+
+    &__icon {
+        width: auto;
+        height: 80%;
+
+        color: rgba(0, 0, 0, 0.7);
+    }
+}

@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+//components
+import Container from './components/Container/Container';
+import ContainerNewTask from './components/ContainerNewTask/ContainerNewTask';
+import ContainerList from './components/ContainerList/ContainerList';
+
+import React, { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [tasks, setTasks] = useState([]);
+
+    return (
+        <>
+            <Container>
+                <div className='container-wrap'>
+                    <ContainerNewTask setTasks={setTasks} tasks={tasks} />
+                    <ContainerList setTasks={setTasks} tasks={tasks} />
+                </div>
+            </Container>
+        </>
+
+
+    );
 }
 
 export default App;
