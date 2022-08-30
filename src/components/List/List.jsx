@@ -5,19 +5,26 @@ import './list.scss';
 //icon
 import { HiOutlineTrash } from 'react-icons/hi'
 
-const List = ({ search, setTasks, tasks }) => {
-    const [checked, setChecked] = useState(false);
+const List = ({setTasks, tasks, task, setCountCompleted, countTasksCompleted }) => {
+    const [checked, setChecked] = useState(task.checked);
 
     const handleCheckbox = (e) => {
         const text = e.target.parentElement.nextElementSibling;
 
         if (checked) {
-            text.classList.remove('line-through')
+            text.classList.remove('line-through');
+            task.checked = !task.checked;
+
         } else {
             text.classList.add('line-through')
+            task.checked = !task.checked;
 
         }
+        console.log(tasks)
         setChecked(!checked)
+
+        setCountCompleted(countTasksCompleted)
+
 
     }
 
@@ -50,28 +57,17 @@ const List = ({ search, setTasks, tasks }) => {
 
     return (
         <>
-            {console.log(tasks, 'here in li')}
+            <li id={task.id} key={task.id} className="list__li" >
+                <div className="list__checkboxContainer">
+                    <label htmlFor='checkbox'></label>
+                    <input className="list__checkbox" type="checkbox" checked={checked} name="checkbox" id="checkbox" onChange={handleCheckbox} />
+                    <span className="list__checkmark"></span>
+                </div>
+                {<p>{task.body}</p>}
 
-            <ul className="list__container">
-                {tasks.slice().sort((a, b) => b.date - a.date).filter(task => task.body.toLowerCase().includes(search)).map((task) => {
-                    return (
-                        <li id={task.id} key={task.id} className="list__li" >
-                            <div className="list__checkboxContainer">
-                                <label htmlFor='checkbox'></label>
-                                <input className="list__checkbox" type="checkbox" name="checkbox" id="checkbox" onChange={handleCheckbox} />
-                                <span className="list__checkmark"></span>
-                            </div>
-                            {<p>{task.body}</p>}
-                            {/* <div className="list__trashContainer">
-                            <HiOutlineTrash className="list__trash" onClick={handleTrash} />
-                        </div> */}
-                            <HiOutlineTrash className="list__trash" onClick={handleTrash} />
+                <HiOutlineTrash className="list__trash" onClick={handleTrash} />
 
-                        </li>
-                    )
-                })}
-
-            </ul>
+            </li>
         </>
     )
 }
