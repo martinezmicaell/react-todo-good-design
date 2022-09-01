@@ -5,7 +5,7 @@ import './list.scss';
 //icon
 import { HiOutlineTrash } from 'react-icons/hi'
 
-const List = ({setTasks, tasks, task, setCountCompleted, countTasksCompleted }) => {
+const List = ({setTasks, tasks, task, setCountTask, countTasksCompleted }) => {
     const [checked, setChecked] = useState(task.checked);
 
     const handleCheckbox = (e) => {
@@ -21,9 +21,11 @@ const List = ({setTasks, tasks, task, setCountCompleted, countTasksCompleted }) 
 
         }
         console.log(tasks)
+        const tasksCompleted = tasks.filter(task => task.checked === true).length;
+
         setChecked(!checked)
 
-        setCountCompleted(countTasksCompleted)
+        setCountTask(tasksCompleted)
 
 
     }

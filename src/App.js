@@ -7,9 +7,14 @@ import ContainerList from './components/ContainerList/ContainerList';
 
 import React, { useState } from 'react';
 
+// function useLocalStorage () {
+// }
+
 function App() {
     const [tasks, setTasks] = useState([]);
 
+
+    console.log(localStorage)
     return (
         <>
             <Container>
